@@ -156,6 +156,7 @@ impl Program {
         &self,
         filters: Vec<RpcFilterType>,
     ) -> Result<ProgramAccountsIterator<T>, ClientError> {
+        #[allow(deprecated)]
         let account_type_filter = RpcFilterType::Memcmp(Memcmp {
             offset: 0,
             bytes: MemcmpEncodedBytes::Base58(bs58::encode(T::discriminator()).into_string()),
